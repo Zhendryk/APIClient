@@ -20,7 +20,7 @@ extension APIClient {
 
 
 /// The base class for all endpoint clients
-public class Client : APIClient {
+open class Client : APIClient {
     
     /// The URLSession to interact with the API server for this client
     var session: URLSession
