@@ -37,6 +37,15 @@ public class Client : APIClient {
         self.init(configuration: .default)
     }
     
+    
+    /// Creates and sends an outgoing web request to the given url with the given path components attached, optional query items such as api keys available
+    ///
+    /// - Parameters:
+    ///   - url: The base url you want to send the web request to
+    ///   - pathComponents: Any endpoint path components to add to the base url
+    ///   - queryItems: Any additional query items such as an authorization key, pagination number, etc
+    ///   - decode: Callback function to parse the JSON into a generic decodable object
+    ///   - completion: Callback function to handle the JSON data in the form of Result<T, APIError>
     func makeWebRequest<T: Decodable>(to url: String, with pathComponents: [String], with queryItems: [URLQueryItem] = [], decode: @escaping (Decodable) -> T?, completion: @escaping (Result<T, APIError>) -> Void) {
         guard var urlOut = URL(string: url) else {
             completion(Result.failure(APIError.urlCreationFailure))
@@ -123,6 +132,10 @@ public class Client : APIClient {
     }
     
     
+    /// Ensures the validity of a given url
+    ///
+    /// - Parameter url: The url to validate
+    /// - Returns: True if valid, false if not
     private func isValidURL(url: URL) -> Bool {
         return UIApplication.shared.canOpenURL(url)
     }
