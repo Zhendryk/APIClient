@@ -28,12 +28,12 @@ open class Client : APIClient {
     /// Initializes this client with a custom URLSessionConfiguration
     ///
     /// - Parameter configuration: A custom URLSessionConfiguration
-    init(configuration: URLSessionConfiguration) {
+    public init(configuration: URLSessionConfiguration) {
         self.session = URLSession(configuration: configuration)
     }
     
     /// Initializes this client with the default URLSessionConfiguration
-    convenience init() {
+    public convenience init() {
         self.init(configuration: .default)
     }
     
@@ -46,7 +46,7 @@ open class Client : APIClient {
     ///   - queryItems: Any additional query items such as an authorization key, pagination number, etc
     ///   - decode: Callback function to parse the JSON into a generic decodable object
     ///   - completion: Callback function to handle the JSON data in the form of Result<T, APIError>
-    func makeWebRequest<T: Decodable>(to url: String, with pathComponents: [String], with queryItems: [URLQueryItem] = [], decode: @escaping (Decodable) -> T?, completion: @escaping (Result<T, APIError>) -> Void) {
+    public func makeWebRequest<T: Decodable>(to url: String, with pathComponents: [String], with queryItems: [URLQueryItem] = [], decode: @escaping (Decodable) -> T?, completion: @escaping (Result<T, APIError>) -> Void) {
         guard var urlOut = URL(string: url) else {
             completion(Result.failure(APIError.urlCreationFailure))
             return
