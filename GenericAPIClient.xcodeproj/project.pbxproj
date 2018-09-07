@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		194DE8822141EEFD0022C92B /* Completion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194DE8812141EEFD0022C92B /* Completion.swift */; };
+		194DE888214215890022C92B /* GenericError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194DE887214215890022C92B /* GenericError.swift */; };
+		194DE88A214215D70022C92B /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194DE889214215D70022C92B /* APIRequest.swift */; };
+		194DE88C214216230022C92B /* HTTPParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194DE88B214216230022C92B /* HTTPParameter.swift */; };
+		194DE88E2142176F0022C92B /* URLQueryEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194DE88D2142176F0022C92B /* URLQueryEncoder.swift */; };
+		194DE8902142186F0022C92B /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194DE88F2142186F0022C92B /* APIClient.swift */; };
+		194DE892214219330022C92B /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194DE891214219330022C92B /* Result.swift */; };
 		199D8C6C2139BB4B0059CF34 /* GenericAPIClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 199D8C622139BB4A0059CF34 /* GenericAPIClient.framework */; };
 		199D8C712139BB4B0059CF34 /* GenericAPIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199D8C702139BB4B0059CF34 /* GenericAPIClientTests.swift */; };
 		199D8C732139BB4B0059CF34 /* GenericAPIClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 199D8C652139BB4A0059CF34 /* GenericAPIClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		199D8C7D2139BB550059CF34 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199D8C7C2139BB550059CF34 /* APIClient.swift */; };
-		199D8C7F2139BBAA0059CF34 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199D8C7E2139BBAA0059CF34 /* Result.swift */; };
-		199D8C812139BBB20059CF34 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 199D8C802139BBB20059CF34 /* APIError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,15 +30,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		194DE8812141EEFD0022C92B /* Completion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Completion.swift; sourceTree = "<group>"; };
+		194DE887214215890022C92B /* GenericError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericError.swift; sourceTree = "<group>"; };
+		194DE889214215D70022C92B /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
+		194DE88B214216230022C92B /* HTTPParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPParameter.swift; sourceTree = "<group>"; };
+		194DE88D2142176F0022C92B /* URLQueryEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLQueryEncoder.swift; sourceTree = "<group>"; };
+		194DE88F2142186F0022C92B /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		194DE891214219330022C92B /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		199D8C622139BB4A0059CF34 /* GenericAPIClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GenericAPIClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		199D8C652139BB4A0059CF34 /* GenericAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GenericAPIClient.h; sourceTree = "<group>"; };
 		199D8C662139BB4A0059CF34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		199D8C6B2139BB4B0059CF34 /* GenericAPIClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GenericAPIClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		199D8C702139BB4B0059CF34 /* GenericAPIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericAPIClientTests.swift; sourceTree = "<group>"; };
 		199D8C722139BB4B0059CF34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		199D8C7C2139BB550059CF34 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		199D8C7E2139BBAA0059CF34 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
-		199D8C802139BBB20059CF34 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,9 +87,13 @@
 			children = (
 				199D8C652139BB4A0059CF34 /* GenericAPIClient.h */,
 				199D8C662139BB4A0059CF34 /* Info.plist */,
-				199D8C7C2139BB550059CF34 /* APIClient.swift */,
-				199D8C7E2139BBAA0059CF34 /* Result.swift */,
-				199D8C802139BBB20059CF34 /* APIError.swift */,
+				194DE8812141EEFD0022C92B /* Completion.swift */,
+				194DE889214215D70022C92B /* APIRequest.swift */,
+				194DE88B214216230022C92B /* HTTPParameter.swift */,
+				194DE88D2142176F0022C92B /* URLQueryEncoder.swift */,
+				194DE88F2142186F0022C92B /* APIClient.swift */,
+				194DE887214215890022C92B /* GenericError.swift */,
+				194DE891214219330022C92B /* Result.swift */,
 			);
 			path = GenericAPIClient;
 			sourceTree = "<group>";
@@ -204,9 +216,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				199D8C7F2139BBAA0059CF34 /* Result.swift in Sources */,
-				199D8C7D2139BB550059CF34 /* APIClient.swift in Sources */,
-				199D8C812139BBB20059CF34 /* APIError.swift in Sources */,
+				194DE888214215890022C92B /* GenericError.swift in Sources */,
+				194DE88A214215D70022C92B /* APIRequest.swift in Sources */,
+				194DE8822141EEFD0022C92B /* Completion.swift in Sources */,
+				194DE892214219330022C92B /* Result.swift in Sources */,
+				194DE88E2142176F0022C92B /* URLQueryEncoder.swift in Sources */,
+				194DE88C214216230022C92B /* HTTPParameter.swift in Sources */,
+				194DE8902142186F0022C92B /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
