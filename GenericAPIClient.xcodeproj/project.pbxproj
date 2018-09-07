@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		194DE8822141EEFD0022C92B /* Completion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194DE8812141EEFD0022C92B /* Completion.swift */; };
 		194DE888214215890022C92B /* GenericError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194DE887214215890022C92B /* GenericError.swift */; };
 		194DE88A214215D70022C92B /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194DE889214215D70022C92B /* APIRequest.swift */; };
 		194DE88C214216230022C92B /* HTTPParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194DE88B214216230022C92B /* HTTPParameter.swift */; };
@@ -30,7 +29,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		194DE8812141EEFD0022C92B /* Completion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Completion.swift; sourceTree = "<group>"; };
 		194DE887214215890022C92B /* GenericError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericError.swift; sourceTree = "<group>"; };
 		194DE889214215D70022C92B /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		194DE88B214216230022C92B /* HTTPParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPParameter.swift; sourceTree = "<group>"; };
@@ -87,7 +85,6 @@
 			children = (
 				199D8C652139BB4A0059CF34 /* GenericAPIClient.h */,
 				199D8C662139BB4A0059CF34 /* Info.plist */,
-				194DE8812141EEFD0022C92B /* Completion.swift */,
 				194DE889214215D70022C92B /* APIRequest.swift */,
 				194DE88B214216230022C92B /* HTTPParameter.swift */,
 				194DE88D2142176F0022C92B /* URLQueryEncoder.swift */,
@@ -218,7 +215,6 @@
 			files = (
 				194DE888214215890022C92B /* GenericError.swift in Sources */,
 				194DE88A214215D70022C92B /* APIRequest.swift in Sources */,
-				194DE8822141EEFD0022C92B /* Completion.swift in Sources */,
 				194DE892214219330022C92B /* Result.swift in Sources */,
 				194DE88E2142176F0022C92B /* URLQueryEncoder.swift in Sources */,
 				194DE88C214216230022C92B /* HTTPParameter.swift in Sources */,

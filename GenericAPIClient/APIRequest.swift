@@ -12,4 +12,5 @@ public protocol APIRequest: Encodable {
     associatedtype Response: Decodable
     
     var resource: String { get }
+    var overrideEncoding: Bool { get }
 }

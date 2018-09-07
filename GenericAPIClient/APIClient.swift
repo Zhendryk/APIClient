@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class APIClient {
+open class APIClient {
     private var baseURL: String
     private let session = URLSession(configuration: .default)
     private let decoder = JSONDecoder()
@@ -22,7 +22,7 @@ public class APIClient {
     }
     
     public func send<T: APIRequest>(request: T, completion: @escaping RequestCallback<T.Response>) -> URLSessionTask {
-        let endpoint = self.endpoint(for: request)
+        let endpoint = self.endpoint(for: request, overrideEncoding: request.overrideEncoding)
         
         debugPrint("Sending API request for \(endpoint)")
         
@@ -42,8 +42,13 @@ public class APIClient {
         return task
     }
     
-    private func endpoint<T: APIRequest>(for request: T) -> URL {
-        guard let parameters = try? URLQueryEncoder.encode(request) else { fatalError("Wrong parameters") }
-        return URL(string: "\(baseURL)\(request.resource)?\(parameters)")!
+    private func endpoint<T: APIRequest>(for request: T, overrideEncoding: Bool) -> URL {
+        if overrideEncoding {
+            return URL(string: "\(baseURL)\(request.resource)")!
+        }
+        else {
+            guard let parameters = try? URLQueryEncoder.encode(request) else { fatalError("Wrong parameters") }
+            return URL(string: "\(baseURL)\(request.resource)?\(parameters)")!
+        }
     }
 }
