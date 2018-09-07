@@ -13,4 +13,13 @@ public protocol APIRequest: Encodable {
     
     var resource: String { get }
     var overrideEncoding: Bool { get }
+    
+    //If you want to mix and match encoded parameters and non encoded ones, just override the CodingKeys function like this:
+    /*
+     private enum CodingKeys: String, CodingKey {
+        case [first property you want encoded]
+        case [second property you want encoded]
+        ...
+     }
+    */
 }
