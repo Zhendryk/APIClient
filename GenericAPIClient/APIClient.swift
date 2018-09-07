@@ -43,12 +43,18 @@ open class APIClient {
     }
     
     private func endpoint<T: APIRequest>(for request: T, overrideEncoding: Bool) -> URL {
+        var endpoint: String = "\(baseURL)\(request.resource)"
+        if !request.extraPathComponents.isEmpty {
+            for component in request.extraPathComponents {
+                endpoint.append("/\(component)")
+            }
+        }
         if overrideEncoding {
-            return URL(string: "\(baseURL)\(request.resource)")!
+            return URL(string: endpoint)!
         }
         else {
             guard let parameters = try? URLQueryEncoder.encode(request) else { fatalError("Wrong parameters") }
-            return URL(string: "\(baseURL)\(request.resource)?\(parameters)")!
+            return URL(string: "\(endpoint)?\(parameters)")!
         }
     }
 }
