@@ -34,7 +34,12 @@ public enum HTTPParameter: Decodable, CustomStringConvertible {
         case .stringArr(let stringArr): return stringArr.joined(separator: ", ")
         case .bool(let bool): return String(describing: bool)
         case .int(let int): return String(describing: int)
-        case .intArr(let intArr): return String(describing: intArr)
+        case .intArr(let intArr):
+            var str: [String] = []
+            for num in intArr {
+                str.append(String(num))
+            }
+            return str.joined(separator: ", ")
         case .double(let double): return String(describing: double)
         }
     }
