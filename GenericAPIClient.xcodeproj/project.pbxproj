@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		193ACA112181FD0D0004F72B /* ExampleEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193ACA102181FD0D0004F72B /* ExampleEndpoint.swift */; };
 		194DE888214215890022C92B /* GenericError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194DE887214215890022C92B /* GenericError.swift */; };
 		194DE88A214215D70022C92B /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194DE889214215D70022C92B /* APIRequest.swift */; };
 		194DE88C214216230022C92B /* HTTPParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 194DE88B214216230022C92B /* HTTPParameter.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		193ACA102181FD0D0004F72B /* ExampleEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleEndpoint.swift; sourceTree = "<group>"; };
 		194DE887214215890022C92B /* GenericError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenericError.swift; sourceTree = "<group>"; };
 		194DE889214215D70022C92B /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
 		194DE88B214216230022C92B /* HTTPParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPParameter.swift; sourceTree = "<group>"; };
@@ -62,9 +64,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		193ACA0F2181FCFC0004F72B /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				193ACA102181FD0D0004F72B /* ExampleEndpoint.swift */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
 		199D8C582139BB4A0059CF34 = {
 			isa = PBXGroup;
 			children = (
+				193ACA0F2181FCFC0004F72B /* Example */,
 				199D8C642139BB4A0059CF34 /* GenericAPIClient */,
 				199D8C6F2139BB4B0059CF34 /* GenericAPIClientTests */,
 				199D8C632139BB4A0059CF34 /* Products */,
@@ -216,6 +227,7 @@
 			files = (
 				194DE888214215890022C92B /* GenericError.swift in Sources */,
 				194DE88A214215D70022C92B /* APIRequest.swift in Sources */,
+				193ACA112181FD0D0004F72B /* ExampleEndpoint.swift in Sources */,
 				194DE892214219330022C92B /* Result.swift in Sources */,
 				194DE88E2142176F0022C92B /* URLQueryEncoder.swift in Sources */,
 				194DE88C214216230022C92B /* HTTPParameter.swift in Sources */,
