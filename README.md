@@ -29,12 +29,12 @@ A walkthrough of this process can be found here: https://guides.cocoapods.org/us
 
 There is an example describing all of the options when making an API endpoint for your client. Once you read and understand that, the process is simple:
 
-**Simply create an APIClient object with the base URL of your API like this:
+**Simply create an APIClient object with the base URL of your API like this:**
 ```swift
 let exampleClient: APIClient = APIClient("https://api.example.com/version")
 ```
 
-**Create an endpoint for it, and you can call for that endpoint like this:
+**Create an endpoint for it, and you can call for that endpoint like this:**
 ```swift
 _ = exampleClient.send(request: ExampleEndpoint(exampleParameter: 5, exampleExtraPathComponent: "json")) { response in
 	switch response {
