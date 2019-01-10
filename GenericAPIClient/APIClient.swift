@@ -28,6 +28,7 @@ open class APIClient {
         self.init("")
     }
     
+    @discardableResult
     public func send<T: APIRequest>(request: T, completion: @escaping RequestCallback<T.Response>) -> URLSessionTask {
         let endpoint = self.endpoint(for: request, overrideEncoding: request.overrideEncoding)
         
