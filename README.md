@@ -36,7 +36,7 @@ let exampleClient: APIClient = APIClient("https://api.example.com/version")
 
 **Create an endpoint for it, and you can call for that endpoint like this:**
 ```swift
-_ = exampleClient.send(request: ExampleEndpoint(exampleParameter: 5, exampleExtraPathComponent: "json")) { response in
+exampleClient.send(request: ExampleEndpoint(exampleParameter: 5, exampleExtraPathComponent: "json")) { response in
 	switch response {
 		case .success(let data):
 			// Handle your data here
