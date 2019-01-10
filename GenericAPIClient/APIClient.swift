@@ -12,6 +12,13 @@ open class APIClient {
     private var baseURL: String
     private let session = URLSession(configuration: .default)
     private let decoder = JSONDecoder()
+    private var dateFormatter: DateFormatter {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm:ss"
+        dateFormatter.locale = Locale.current
+        dateFormatter.timeZone = TimeZone.current
+        return dateFormatter
+    }
     
     public init(_ baseURL: String) {
         self.baseURL = baseURL
@@ -24,7 +31,7 @@ open class APIClient {
     public func send<T: APIRequest>(request: T, completion: @escaping RequestCallback<T.Response>) -> URLSessionTask {
         let endpoint = self.endpoint(for: request, overrideEncoding: request.overrideEncoding)
         
-        debugPrint("Sending API request for \(endpoint)")
+        print("\(dateFormatter.string(from: Date())) API Request sent: \(endpoint)")
         
         let task = session.dataTask(with: endpoint) { (data: Data?, response: URLResponse?, error: Error?) in
             do {
