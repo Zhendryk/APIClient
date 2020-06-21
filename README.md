@@ -1,47 +1,33 @@
-# GenericAPIClient
-Generic client base class to make asynchronous web requests and decode generic json data
+# APIClient
 
-## Installation
+#### A clean, generic interface from your application to an API, written in pure Swift with no other dependencies.
 
-There are two options for installing: You can either clone/fork this repository and use the source code yourself, or use cocoapods.
-
-### Cocoapods
-
-If you want to include this in your xcode project using cocoapods, you must do the following:
-* Install cocoapods on your computer by running the following command in the terminal:
-```
-sudo gem install cocoapods
-```
-You can find further help here: https://guides.cocoapods.org/using/getting-started.html#toc_3
-* Create a Podfile using the `pod init` command. Further information on Podfiles can be found here: https://guides.cocoapods.org/using/the-podfile.html
-* Point the Podfile to GenericAPIClient, like so:
-```
-target 'MyApp' do
-  use_frameworks!
-  pod 'GenericAPIClient'
-end
-```
-* Once you have that Podfile, use the `pod install` command to install the GenericAPIClient dependency into your xcode project. Then enter your project and build it.
-
-A walkthrough of this process can be found here: https://guides.cocoapods.org/using/using-cocoapods
+#### This library is made available as a Swift Package. To use it as a dependency in your project [see this documentation from Apple.](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app)
 
 ## Usage
 
-There is an example describing all of the options when making an API endpoint for your client. Once you read and understand that, the process is simple:
-
-**Simply create an APIClient object with the base URL of your API like this:**
+General usage is as follows:
+1. Create your API client
 ```swift
-let exampleClient: APIClient = APIClient("https://api.example.com/version")
+let client = APIClient("api.github.com")
 ```
-
-**Create an endpoint for it, and you can call for that endpoint like this:**
+2. Define your requests to the API you are interfacing with (see `Source/Examples/Requests`), and your `Codable` JSON objects to serialize the API's data into (see `Source/Examples/Data Structures`)
+3. Instantiate your request, send, and handle the response!
 ```swift
-_ = exampleClient.send(request: ExampleEndpoint(exampleParameter: 5, exampleExtraPathComponent: "json")) { response in
-	switch response {
-		case .success(let data):
-			// Handle your data here
-		case .failure(let error):
-			//Handle your error here
-	}
-}
+// Assuming a client named `client` has already been created...
+// Create our request (see Source/Examples/Requests/GetPosts.swift)
+let request = GetPosts(userId: 1)
+
+// Send request
+client.send(request: request, completion: { result in
+    switch result {
+    case .success(let data):
+    // Handle your data here
+    // In this case, data is serialized into a `Post` object (see Source/Examples/Data Structures/Post.swift)
+        break
+    case .failure(let error):
+    // Handle your error here
+        break
+    }
+})
 ```
