@@ -9,7 +9,7 @@
 
 /// The result of an API request, providing a Value when successful and an Error when it fails.
 public enum APIRequestResult<Value> {
-    case success(Value?)
+    case success(Value)
     case failure(Error)
 }
 
@@ -17,4 +17,6 @@ public enum APIRequestResult<Value> {
 public typealias RequestCallback<Value> = (APIRequestResult<Value>) -> Void
 
 /// Struct to differentiate requests that aren't expecting a response
-public struct NoResponse: Decodable {}
+public struct NoResponse: Decodable {
+    init() {}
+}

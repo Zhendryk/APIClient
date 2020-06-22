@@ -58,10 +58,16 @@ open class APIClient {
 
     /// Send a web request to the endpoint defined by `request`, and handle the response with the callback handler `completion`.
     /// - Parameter request: The generic object conforming to the `APIRequest` protocol defining the specific endpoint / request we want to send.
-    /// - Parameter logOutput: Whether or not there should be any stdout logs during this request. Defaults to `true`.
     /// - Parameter completion: Completion handler (callback) to handle the response of the request that is sent.
+    /// - Parameter logOutput: Whether or not there should be any stdout logs during this request. Defaults to `true`.
+    /// - Parameter cachePolicy: The request's cache policy.
+    /// - Parameter httpShouldHandleCookies: Whether or not cookies will be sent with and set for this request.
+    /// - Parameter httpShouldUsePipelining: Whether or not this request should transmit before the previous response is received.
+    /// - Parameter mainDocumentUrl: The main document URL associated with this request.
+    /// - Parameter networkServiceType: The service type associated with this request.
+    /// - Parameter timeoutInterval: The timeout interval of this request.
     @discardableResult
-    public func send<T: APIRequest>(request: T, logOutput: Bool = true, completion: @escaping RequestCallback<T.ResponseType>) -> URLSessionTask? {
+    public func send<T: APIRequest>(request: T, completion: @escaping RequestCallback<T.ResponseType>, logOutput: Bool = true, cachePolicy: URLRequest.CachePolicy? = nil, httpShouldHandleCookies: Bool? = nil, httpShouldUsePipelining: Bool? = nil, mainDocumentUrl: URL? = nil, networkServiceType: URLRequest.NetworkServiceType? = nil, timeoutInterval: TimeInterval? = nil) -> URLSessionTask? {
         // Generate our endpoint by serializing all of the data within request.
         var requestUrl = URLComponents()
         requestUrl.host = self.urlComponents.host
@@ -76,6 +82,12 @@ open class APIClient {
         var webRequest = URLRequest(url: endpointUrl)
         webRequest.httpMethod = request.method.rawValue
         webRequest.httpBody = request.body
+        if let cp = cachePolicy { webRequest.cachePolicy = cp }
+        if let httpshc = httpShouldHandleCookies { webRequest.httpShouldHandleCookies = httpshc }
+        if let httpsup = httpShouldUsePipelining { webRequest.httpShouldUsePipelining = httpsup }
+        if let mdurl = mainDocumentUrl { webRequest.mainDocumentURL = mdurl }
+        if let nst = networkServiceType { webRequest.networkServiceType = nst }
+        if let toi = timeoutInterval { webRequest.timeoutInterval = toi }
         for header in request.headers {
             webRequest.setValue(header.value, forHTTPHeaderField: header.key)
         }
@@ -90,7 +102,9 @@ open class APIClient {
                     // Successful request, attempt to decode the response and pass the data to the completion handler.
                     if T.ResponseType.self == NoResponse.self {
                         // Don't care about response data (if any), just complete with nil.
-                        completion(.success(nil))
+                        // Force cast as we already verified the types are identical
+                        let emptyResponse: T.ResponseType = NoResponse() as! T.ResponseType
+                        completion(.success(emptyResponse))
                         return
                     }
                     else {
