@@ -56,6 +56,17 @@ open class APIClient {
         self.urlComponents.scheme = newScheme
     }
 
+    /// Set the path subcomponent to use when making requests with this `APIClient`.
+    /// - Parameter newPath: The new path subcomponent.
+    public func setPath(_ newPath: String) {
+        self.urlComponents.path = newPath
+    }
+
+    /// The path subcomponent of the URLs used when making requests with this `APIClient`.
+    public var path: String {
+        return self.urlComponents.path
+    }
+
     /// Send a web request to the endpoint defined by `request`, and handle the response with the callback handler `completion`.
     /// - Parameter request: The generic object conforming to the `APIRequest` protocol defining the specific endpoint / request we want to send.
     /// - Parameter completion: Completion handler (callback) to handle the response of the request that is sent.
@@ -72,7 +83,8 @@ open class APIClient {
         var requestUrl = URLComponents()
         requestUrl.host = self.urlComponents.host
         requestUrl.scheme = self.urlComponents.scheme
-        requestUrl.path = request.resource
+        // This is assuming that both strings are preceeded by a forward slash
+        requestUrl.path = [self.urlComponents.path, request.resource].joined()
         requestUrl.queryItems = request.urlQueryParameters
         guard let endpointUrl = requestUrl.url else {
             completion(.failure(APIClientError.malformedUrl))
