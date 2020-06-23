@@ -1,8 +1,8 @@
 # APIClient
 
-#### A clean, generic interface from your application to an API, written in pure Swift with no other dependencies.
+> A clean, generic interface from your application to an API, written in pure Swift with no other dependencies.
 
-#### This library is made available as a Swift Package. To use it as a dependency in your project [see this documentation from Apple.](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app)
+> This library is made available as a Swift Package. To use it as a dependency in your project [see this documentation from Apple.](https://developer.apple.com/documentation/xcode/adding_package_dependencies_to_your_app)
 
 ## Usage
 
