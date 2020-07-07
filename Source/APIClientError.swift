@@ -9,9 +9,6 @@
 
 /// An error resulting from an operation failing during normal APIClient operation.
 public enum APIClientError: Error {
-    /// An error occurred during encoding.
-    case encoding
-
     /// An error occurred during decoding.
     case decoding
 

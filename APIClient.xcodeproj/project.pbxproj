@@ -26,10 +26,11 @@
 		19878443249ED88B00162778 /* GetPosts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1987843F249ED88B00162778 /* GetPosts.swift */; };
 		19878444249ED88B00162778 /* UpdatePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19878440249ED88B00162778 /* UpdatePost.swift */; };
 		19878446249ED89200162778 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19878445249ED89200162778 /* Post.swift */; };
+		198FBCAF24B51029004F1219 /* URLSession+Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198FBCAE24B51029004F1219 /* URLSession+Result.swift */; };
 		OBJ_25 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_8 /* APIClient.swift */; };
 		OBJ_26 /* APIClientError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* APIClientError.swift */; };
 		OBJ_27 /* APIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* APIRequest.swift */; };
-		OBJ_28 /* APIRequestResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* APIRequestResult.swift */; };
+		OBJ_28 /* APIRequestCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* APIRequestCallback.swift */; };
 		OBJ_29 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* HTTPMethod.swift */; };
 		OBJ_30 /* HTTPParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* HTTPParameter.swift */; };
 		OBJ_37 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
@@ -61,10 +62,11 @@
 		19878440249ED88B00162778 /* UpdatePost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePost.swift; sourceTree = "<group>"; };
 		19878445249ED89200162778 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		1987844A249EDA3800162778 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		198FBCAE24B51029004F1219 /* URLSession+Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Result.swift"; sourceTree = "<group>"; };
 		"APIClient::APIClient::Product" /* APIClient.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = APIClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"APIClient::APIClientTests::Product" /* APIClientTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = APIClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* APIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequest.swift; sourceTree = "<group>"; };
-		OBJ_11 /* APIRequestResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestResult.swift; sourceTree = "<group>"; };
+		OBJ_11 /* APIRequestCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestCallback.swift; sourceTree = "<group>"; };
 		OBJ_12 /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		OBJ_13 /* HTTPParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPParameter.swift; sourceTree = "<group>"; };
 		OBJ_15 /* APIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
@@ -155,9 +157,10 @@
 				OBJ_8 /* APIClient.swift */,
 				OBJ_9 /* APIClientError.swift */,
 				OBJ_10 /* APIRequest.swift */,
-				OBJ_11 /* APIRequestResult.swift */,
+				OBJ_11 /* APIRequestCallback.swift */,
 				OBJ_12 /* HTTPMethod.swift */,
 				OBJ_13 /* HTTPParameter.swift */,
+				198FBCAE24B51029004F1219 /* URLSession+Result.swift */,
 			);
 			path = Source;
 			sourceTree = SOURCE_ROOT;
@@ -253,8 +256,9 @@
 				19878443249ED88B00162778 /* GetPosts.swift in Sources */,
 				OBJ_27 /* APIRequest.swift in Sources */,
 				19878441249ED88B00162778 /* DeletePost.swift in Sources */,
+				198FBCAF24B51029004F1219 /* URLSession+Result.swift in Sources */,
 				19878444249ED88B00162778 /* UpdatePost.swift in Sources */,
-				OBJ_28 /* APIRequestResult.swift in Sources */,
+				OBJ_28 /* APIRequestCallback.swift in Sources */,
 				OBJ_29 /* HTTPMethod.swift in Sources */,
 				OBJ_30 /* HTTPParameter.swift in Sources */,
 			);

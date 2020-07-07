@@ -78,35 +78,35 @@ public enum HTTPParameter: Codable, CustomStringConvertible {
     public var description: String {
         switch self {
         case .string(let string): return string
-        case .stringArr(let stringArr): return stringArr.joined(separator: ", ").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        case .stringArr(let stringArr): return stringArr.joined(separator: ",")
         case .bool(let bool): return String(describing: bool)
         case .boolArr(let boolArr):
             var str: [String] = []
             for bl in boolArr {
                 str.append(String(describing: bl))
             }
-            return str.joined(separator: ", ").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            return str.joined(separator: ",")
         case .int(let int): return String(describing: int)
         case .intArr(let intArr):
             var str: [String] = []
             for num in intArr {
                 str.append(String(describing: num))
             }
-            return str.joined(separator: ", ").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            return str.joined(separator: ",")
         case .double(let double): return String(describing: double)
         case .doubleArr(let doubleArr):
             var str: [String] = []
             for dbl in doubleArr {
                 str.append(String(describing: dbl))
             }
-            return str.joined(separator: ", ").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            return str.joined(separator: ",")
         case .float(let float): return String(describing: float)
         case .floatArr(let floatArr):
             var str: [String] = []
             for flt in floatArr {
                 str.append(String(describing: flt))
             }
-            return str.joined(separator: ", ").addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+            return str.joined(separator: ",")
         }
     }
 }

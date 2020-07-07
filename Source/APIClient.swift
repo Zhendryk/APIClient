@@ -78,7 +78,7 @@ open class APIClient {
     /// - Parameter networkServiceType: The service type associated with this request.
     /// - Parameter timeoutInterval: The timeout interval of this request.
     @discardableResult
-    public func send<T: APIRequest>(request: T, completion: @escaping RequestCallback<T.ResponseType>, logOutput: Bool = true, cachePolicy: URLRequest.CachePolicy? = nil, httpShouldHandleCookies: Bool? = nil, httpShouldUsePipelining: Bool? = nil, mainDocumentUrl: URL? = nil, networkServiceType: URLRequest.NetworkServiceType? = nil, timeoutInterval: TimeInterval? = nil) -> URLSessionTask? {
+    public func send<T: APIRequest>(request: T, completion: @escaping APIRequestCallback<T.ResponseType>, logOutput: Bool = true, cachePolicy: URLRequest.CachePolicy? = nil, httpShouldHandleCookies: Bool? = nil, httpShouldUsePipelining: Bool? = nil, mainDocumentUrl: URL? = nil, networkServiceType: URLRequest.NetworkServiceType? = nil, timeoutInterval: TimeInterval? = nil) -> URLSessionTask? {
         // Generate our endpoint by serializing all of the data within request.
         var requestUrl = URLComponents()
         requestUrl.host = self.urlComponents.host
@@ -103,36 +103,30 @@ open class APIClient {
         for header in request.headers {
             webRequest.setValue(header.value, forHTTPHeaderField: header.key)
         }
-        // Handle the response to our request.
+        // Make the request
         if logOutput { print("\(dateFormatter.string(from: Date())) - API \(request.method.rawValue) Request sent: \(endpointUrl)") }
-        let task = session.dataTask(with: webRequest) { (data: Data?, response: URLResponse?, error: Error?) in
-            if let err = error {
-                completion(.failure(err))
-            }
-            else {
+        let task = session.dataTask(with: webRequest) { result in
+            switch result {
+            case .success(let (response, data)):
                 do {
-                    // Successful request, attempt to decode the response and pass the data to the completion handler.
                     if T.ResponseType.self == NoResponse.self {
-                        // Don't care about response data (if any), just complete with nil.
-                        // Force cast as we already verified the types are identical
-                        let emptyResponse: T.ResponseType = NoResponse() as! T.ResponseType
-                        completion(.success(emptyResponse))
-                        return
+                        // User is not expecting any data in the response
+                        let emptyResponseData: T.ResponseType = NoResponse() as! T.ResponseType
+                        completion(.success((response, emptyResponseData)))
                     }
                     else {
-                        // Decode the response data and complete with it.
-                        guard let data = data else {
-                            completion(.failure(APIClientError.decoding))
-                            return
-                        }
-                        let result = try self.decoder.decode(T.ResponseType.self, from: data)
-                        completion(.success(result))
+                        // User expects data in the response
+                        let decodedData = try self.decoder.decode(T.ResponseType.self, from: data)
+                        completion(.success((response, decodedData)))
                     }
                 }
                 catch {
-                    // Unsuccessful request, complete with the resulting error.
+                    // Failure during decoding
                     completion(.failure(error))
                 }
+            case .failure(let error):
+                // Request failed
+                completion(.failure(error))
             }
         }
         task.resume()
