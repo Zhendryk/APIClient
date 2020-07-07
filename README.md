@@ -21,7 +21,7 @@ let request = GetPosts(userId: 1)
 // Send request
 client.send(request: request, completion: { result in
     switch result {
-    case .success(let data):
+    case .success(let (response, data)):
     // Handle your data here
     // In this case, data is serialized into a `Post` object (see Source/Examples/Data Structures/Post.swift)
         break
